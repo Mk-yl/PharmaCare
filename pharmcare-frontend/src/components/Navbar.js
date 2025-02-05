@@ -33,6 +33,11 @@ const Navbar = () => {
                 <Link to="/cart" style={{ textDecoration: 'none' }}>
                     <FontAwesomeIcon icon={faShoppingCart} className="icon" title="Cart" />
                 </Link>
+                {/* Lien vers la page Admin */}
+                <Link to="/admin" style={{ textDecoration: 'none' }}>
+                    <FontAwesomeIcon icon={faCogs} className="icon" title="Admin" />
+                </Link>
+
                 <div className="profile-container">
                     <FontAwesomeIcon
                         icon={faUser}
