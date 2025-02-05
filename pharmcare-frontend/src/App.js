@@ -1,25 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import MedicineList from './components/MedicineList';
-import Cart from './components/Cart';
+import { Routes, Route } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import Home from './pages/Home';
+import MedicineList from './pages/Medicines';
+import CartPage from './pages/CartPage';
 
 const App = () => {
-  const addToCart = (medicineId, quantity) => {
-    console.log(`Adding medicine ${medicineId} with quantity ${quantity}`);
-    // Logic to add to cart will go here
-  };
+    const { isLoading } = useAuth0();
 
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<h1>Welcome to PharmaCare</h1>} />
-        <Route path="/medicines" element={<MedicineList addToCart={addToCart} />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </Router>
-  );
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/medicines" element={<MedicineList />} />
+            <Route path="/cart" element={<CartPage />} />
+        </Routes>
+    );
 };
 
 export default App;

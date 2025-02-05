@@ -1,0 +1,97 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(188, 179, 179);
+    border-bottom: 3px solid rgb(0, 137, 73);
+}
+
+.app-logo {
+    display: flex;
+    align-items: center;
+}
+
+.monlogo {
+    width: 50px;
+    margin-right: 15px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2E4E3F;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #2E4E3F;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    font-size: 20px;
+    margin: 0 10px;
+    color: #2E4E3F;
+    cursor: pointer;
+}
+
+.profile-container {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #FFFFFF;
+    border: 1px solid #2E4E3F;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    z-index: 10;
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-logo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2E4E3F;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    font-size: 16px;
+    color: #2E4E3F;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.logout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #D40000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
