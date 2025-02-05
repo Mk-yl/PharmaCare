@@ -4,6 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Home from './pages/Home';
 import MedicineList from './pages/Medicines';
 import CartPage from './pages/CartPage';
+import AdminDashboard from './components/AdminDashboard';
 
 const App = () => {
     const { isLoading } = useAuth0();

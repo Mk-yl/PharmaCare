@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Navbar.css';
-import { faUser, faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSearch, faShoppingCart , faCogs } from '@fortawesome/free-solid-svg-icons';
 import Cart from "./Cart";
 
 import {Link} from "react-router-dom";
