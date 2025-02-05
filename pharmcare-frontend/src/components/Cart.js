@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchCart } from '../services/api'; // Importer la fonction simulée pour le panier
 
-const Cart = ({ cartItems }) => {
+const Cart = () => {
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+        const fetchCartItems = async () => {
+            const response = await fetchCart();
+            setCartItems(response.data);
+        };
+
+        fetchCartItems();
+    }, []);
+
     return (
         <div>
             <ul>

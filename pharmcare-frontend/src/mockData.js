@@ -141,10 +141,5 @@ export const cartItems = [
     quantity: 1,
     price: medicines[1].price,
   },
-  {
-    id: 3,
-    medicine: medicines[2],
-    quantity:  3,
-    price: medicines[2].price,
-  }
+
 ];
