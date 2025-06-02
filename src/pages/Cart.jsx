@@ -1,25 +1,20 @@
 import { useState } from 'react';
 import { useCart } from '../contexts/CartContext';
+import PayPalButton from '../components/auth/PayPalButton';
 import './Cart.css';
 
 function Cart() {
   const { cartItems, removeFromCart, updateQuantity, clearCart, totalPrice } = useCart();
   const [orderPlaced, setOrderPlaced] = useState(false);
 
+
   const handleQuantityChange = (id, newQuantity) => {
-    // Make sure quantity is a number and >= 1
     const quantity = Math.max(1, Number(newQuantity));
     updateQuantity(id, quantity);
   };
 
   const handleRemoveItem = (id) => {
     removeFromCart(id);
-  };
-
-  const handleCheckout = () => {
-    // Simulate successful order
-    setOrderPlaced(true);
-    clearCart();
   };
 
   if (orderPlaced) {
@@ -30,14 +25,9 @@ function Cart() {
             <h2>Commande validée !</h2>
             <p>Votre commande a été enregistrée avec succès.</p>
             <p className="order-note">
-              Note: Dans une application réelle, le processus de paiement et de
-              livraison serait géré ici. Comme il s'agit d'une démonstration,
-              aucune commande n'a été réellement passée.
+              Note:...
             </p>
-            <button
-                className="btn btn-primary"
-                onClick={() => setOrderPlaced(false)}
-            >
+            <button className="btn btn-primary" onClick={() => setOrderPlaced(false)}>
               Retour à la boutique
             </button>
           </div>
@@ -78,7 +68,7 @@ function Cart() {
                   <div className="item-product">
                     <div className="item-image">
                       <img
-                          src={item.imageUrl || 'https://images.pexels.com/photos/139398/himalayas-mountains-nepal-himalaya-139398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}
+                          src={item.imageUrl || 'https://via.placeholder.com/100'}
                           alt={item.nom}
                       />
                     </div>
@@ -118,10 +108,7 @@ function Cart() {
                   </div>
 
                   <div className="item-actions">
-                    <button
-                        className="remove-item-btn"
-                        onClick={() => handleRemoveItem(item.id)}
-                    >
+                    <button className="remove-item-btn" onClick={() => handleRemoveItem(item.id)}>
                       ×
                     </button>
                   </div>
@@ -147,17 +134,18 @@ function Cart() {
               <span>{(totalPrice * 1.2).toFixed(2)} €</span>
             </div>
 
-            <button
-                className="checkout-btn"
-                onClick={handleCheckout}
-            >
-              Valider la commande
-            </button>
 
-            <button
-                className="clear-cart-btn"
-                onClick={clearCart}
-            >
+
+                <PayPalButton
+                    amount={(totalPrice * 1.2).toFixed(2)}
+                    onSuccess={() => {
+                      setOrderPlaced(true);
+                      clearCart();
+                    }}
+                />
+
+
+            <button className="clear-cart-btn" onClick={clearCart}>
               Vider le panier
             </button>
           </div>
