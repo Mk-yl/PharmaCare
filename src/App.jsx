@@ -1,4 +1,4 @@
-import {Routes, Route, Navigate} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import ProtectedRoute from './components/auth/ProtectedRoute'
 import Home from './pages/Home'
@@ -17,7 +17,6 @@ function App() {
         <Navbar />
         <main className="main-content">
           <Routes>
-            <Route path="/callback" element={<Navigate to="/" replace />} />
             <Route path="/" element={<Home />} />
             <Route path="/medicines" element={<Medicines />} />
             <Route path="/cart" element={<Cart />} />
